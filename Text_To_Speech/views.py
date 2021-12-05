@@ -117,7 +117,7 @@ def speech_function(request):
              return redirect('speech_page')
 
         else:
-            engine = pyttsx3.init('sapi5')
+            engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
             return redirect('speech_page')
