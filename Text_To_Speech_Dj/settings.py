@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 # ,default=False,cast=bool
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['texttospeechdj.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -131,13 +131,13 @@ USE_TZ = True
 
 # STATIC_ROOT = os.path.join(BASE_DIR,'statics')
 
-STATIC_URL = '/statics/'
+STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR/'statics'
+STATIC_ROOT = BASE_DIR/'static'
 
 STATICFILES_DIRS =[
-    # BASE_DIR / "statics",
-    os.path.join(BASE_DIR,'statics'),
+    BASE_DIR / "statics",
+    # os.path.join(BASE_DIR,'static'),
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
