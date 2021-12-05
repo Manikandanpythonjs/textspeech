@@ -1,0 +1,51 @@
+{% extends 'Text_To_Speech/navbar.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{%block title%}<title>LoginApp</title>{%endblock%}
+</head>
+<body>
+	{% block body %}
+
+	    <section class="bg-light container ">
+	    		{% for msg in messages %}
+
+		              		<div class="alert alert-danger alert-dismissible fade show mt-0 text-center" role="alert"
+		              		id="gone_speech">
+							  <strong>{{msg}}</strong> 
+							  <button   type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+		        {% endfor %}
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Get in touch</h2>
+                    <p class="lead mb-0">We'd love to hear from you</p>
+                </div>
+
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        
+                        <form id="contactForm" method="POST">
+                            <!-- Name input-->
+                            {% csrf_token %}  
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control text-center " id="message" name="speech_plaintext" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                                <label for="message">Text to Speech</label>
+                     
+                            </div>
+                          
+                            <div class="d-grid"><button class="btn btn-primary btn-lg " id="        submitButton" type="submit">Speech</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+	  
+	{%endblock%}
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends  'Text_To_Speech/navbar.html' %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{%block title%}<title>Login</title>{%endblock%}
+
+</head>
+<body>
+
+
+	{% block body%}
+		
+		<section class="vh-100 bg-image" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/search-box/img4.jpg');">		
+		<div class="container ">
+		     <div class="row">
+		         <div class="col-md-6 offset-md-3">
+		             <div class="mb-3  m-5">
+		                <h3 style="text-align: center;" >Text-To-Speech</h3>
+		                {% for msg in messages %}
+
+		              		<div class="alert alert-warning alert-dismissible fade show mt-1 text-center"
+		              		id="gone_login" role="alert">
+							  <strong>{{msg}}</strong> 
+							  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+		  				 {% endfor %}
+		             </div>
+
+		            <form action="" class="shadow-lg  rounded p-4" method="POST" autocomplete="off">
+		            	{% csrf_token %}                  
+		                <div class="mb-3">
+		                    <label for="username">Username</label>
+		                    <input type="text" class="form-control" name="username" id="username" placeholder="Username or Email">
+		                </div>
+
+		                <div class="mb-3">
+		                    <label for="Password">Password</label>
+		                    <input type="password" class="form-control" name="password" id="Password" placeholder="Password">
+		                </div>
+
+
+		                <div class="mb-3  d-grid gap-2">
+		                    <button type="submit" class="btn btn-primary btn-lg ">Login</button>
+		                </div>
+
+		                <hr>
+
+		                <p class="text-center p-3">If you have not account <a style="text-decoration: none;" href="{% url  'register_page' %}">Register Now</a></p>
+		                
+		            </form>
+		        </div>
+		    </div>
+		</div>
+
+
+	{%endblock%}
+
+</body>
+</html>

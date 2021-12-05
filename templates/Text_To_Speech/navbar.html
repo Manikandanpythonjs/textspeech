@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>	
+<html>
+{% load static %}
+<head>
+	<meta charset="utf-8">
+	{% block title %}<title></title>{% endblock %}
+
+  <link rel="stylesheet" type="text/css" href="{%  static  'Text_To_Speech/CSS/bootstrap.min.css' %}">
+  
+  <link rel="stylesheet" type="text/css" href="{%  static 'Text_To_Speech/CSS/main.css' %}">
+
+
+</head>
+<body>
+ 	{# for nav bar active class #}
+  {% url 'home_page' as home %}
+  {% url 'register_page' as register %}
+  {% url 'login_page' as login %}
+  {% url 'logout_page' as logout %}
+  {% url 'speech_page' as speech %}
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-3">
+      <div class="container-fluid">
+        <a class="navbar-brand " id="title-bar-name" href="{% url 'home_page' %}">Text-To-Speech</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto " id="ul-nav">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == home %}active{% endif %}" aria-current="page" href="{% url 'home_page' %}">Home</a>
+            </li>
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == logout %}active{% endif %} " href="{% url 'logout_page' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == speech %}active{% endif %} " href="{% url 'speech_page' %}">Speech</a>
+            </li>
+            <li class="nav-link" id="username-nav">{{ user.username }}</li>
+           
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == register %}active{% endif %} " href="{% url 'register_page' %}">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == login %}active{% endif %} " href="{% url 'login_page' %}">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+  </nav>
+
+ {% block body %}
+ 
+ {% endblock %}
+  
+ <script  src="{%  static  'Text_To_Speech/JS/bootstrap.min.js'  %}  "/></script>	
+ <script  src="{%  static  'Text_To_Speech/JS/message_error.js'  %}  "/></script>  
+
+</body>
+</html>

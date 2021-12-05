@@ -1,0 +1,96 @@
+{% extends  'Text_To_Speech/navbar.html' %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{%block title%}<title>Register</title>{%endblock%}
+		
+
+</head>
+<body>
+
+
+	{% block body%}
+		
+	
+		<section class="vh-200" style="background-color: #eee;">
+		  <div class="container h-100" >
+		    <div class="row d-flex justify-content-center align-items-center h-100">
+		      <div class="col-lg-12 col-xl-11 ">
+		        <div class="card text-black mt-3 shadow-lg" style="border-radius: 25px;">
+		          <div class="card-body p-md-5">
+		            <div class="row justify-content-center">
+		              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+		              	{% for msg in messages %}
+
+		              		<div class="alert alert-warning alert-dismissible fade show mt-3 text-center" role="alert"
+		              		id="gone_reg">
+							  <strong>{{msg}}</strong> 
+							  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+		              	{% endfor %}
+
+		              
+		                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color:blueviolet;">Sign up</p>
+
+		                <form class="mx-1 mx-md-4"  action=""  method="POST" autocomplete="off" novalidate >
+
+			                 {%csrf_token%}
+
+			                  <!-- {{form.as_p}} -->
+
+			                 <div class="mb-3">
+			                    <label for="username">Username</label>
+			                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+			                 </div>
+
+			                 <div class="mb-3">
+			                    <label for="Password">Email</label>
+			                    <input type="email" class="form-control" name="emailfield" id="Password" placeholder="Password">
+			                 </div>
+
+			                 <div class="mb-3">
+			                    <label for="username">Password</label>
+			                    <input type="password" class="form-control" name="password" id="username" placeholder="Username">
+			                 </div>
+
+			                 <div class="mb-3">
+			                    <label for="Password">Confirm Password</label>
+			                    <input type="password" class="form-control" name="confirmpassword" id="Password" placeholder="Password">
+			                  </div>
+
+			                
+			                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+			                    <input type="submit" class="btn btn-primary btn-lg" value="Register">
+			                
+			                  </div>
+
+			                  <p class="text-center mb-0">If you have  account <a href="{% url 'login_page' %}" style="text-decoration: none;">Sign In</a></p>
+
+		                </form>
+
+		              </div>
+		              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+		                <img  class="img-tag" src="{%  static  'Text_To_Speech/Img/Text-to-Speech.png' %} ">
+
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</section>
+				
+
+
+	{%endblock%}
+
+</body>
+</html>

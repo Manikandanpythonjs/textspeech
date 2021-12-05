@@ -1,0 +1,52 @@
+{% extends  'Text_To_Speech/navbar.html' %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+	<meta charset="utf-8">
+	{%block title%}<title>Home</title>{%endblock%}
+
+</head>
+<body>
+
+
+	{% block body%}
+		
+			
+		     <!-- Header-->
+        <header class="bg-dark ">
+        	{% for msg in messages %}
+
+		              		<div class="alert alert-success alert-dismissible fade show mt-0 text-center" role="alert" id="gone_home">
+							  <strong style="text-transform: capitalize;" >{{msg}}</strong> 
+							  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+
+		   {% endfor %}
+
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Text to Speech With Python</h1>
+                            <p class="lead text-white-50 mb-4" style="text-transform:capitalize;">TTS is the abbreviation for Text to Speech, a technology text-to-speech. It has different applications, both free and paid. It can be used to create voiceover for videos, convert text documents into voices or help people with vision problems have can "read" the text.</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'register_page' %}">Get Started</a>
+                                <!-- <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Footer-->
+        <footer class="py-5 bg-primary">
+            <div class="container px-5"><p class="m-0 p-0 text-center text-white">Copyright &copy; Text to Speech 2021</p></div>
+        </footer>
+
+	{%endblock%}
+
+</body>
+</html>
