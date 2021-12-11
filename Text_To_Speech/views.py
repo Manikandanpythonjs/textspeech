@@ -117,11 +117,13 @@ def speech_function(request):
              return redirect('speech_page')
 
         else:
+            # return redirect('speech_page')
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-            messages.warning(request,"Something Wrong")
-            return redirect('speech_page')
+            return HttpResponseRedirect('/Speech/')
+            # messages.warning(request,"Something Wrong")
+           
 
 
 
