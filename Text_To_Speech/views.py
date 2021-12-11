@@ -125,7 +125,7 @@ def speech_function(request):
                 engine.runAndWait()
             # return HttpResponseRedirect('/Speech/')
             # messages.warning(request,"Something Wrong")
-                return redirect('speech_page')
+            return redirect('speech_page')
 
 
 
