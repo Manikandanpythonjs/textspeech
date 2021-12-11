@@ -106,9 +106,9 @@ def logout_function(request):
 @login_required()
 def speech_function(request):
 
-    if request.method =='POST':
+    if request.method =='GET':
 
-        text_speech=request.POST['speech_plaintext']
+        text_speech=request.GET['speech_plaintext']
 
         if text_speech == "":
 
@@ -116,12 +116,12 @@ def speech_function(request):
              return redirect('speech_page')
 
         else:
-            from pyttsx3.drivers import sapi5
-            engine = pyttsx3.init()
-            engine.say(text_speech)
-            engine.runAndWait()
-            return redirect('speech_page')
-            # return HttpResponseRedirect('speech_page')
+        #     from pyttsx3.drivers import sapi5
+        #     engine = pyttsx3.init()
+        #     engine.say(text_speech)
+        #     engine.runAndWait()
+           return redirect('speech_page')
+        #     # return HttpResponseRedirect('speech_page')
     else:           
 
         return render(request,'Text_To_Speech/Speech_Page.html')
