@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
 import pyttsx3
-from pyttsx3.drivers import sapi5
 import comtypes.client
 
 
@@ -119,6 +118,7 @@ def speech_function(request):
 
         else:
             return redirect('speech_page')
+            from pyttsx3.drivers import sapi5
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
