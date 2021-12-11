@@ -120,7 +120,7 @@ def speech_function(request):
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-           return redirect('speech_page')
+            return redirect('speech_page')
         #     # return HttpResponseRedirect('speech_page')
     else:           
 
