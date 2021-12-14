@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect 
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
 import pyttsx3
@@ -118,13 +118,10 @@ def speech_function(request):
 
         else:
 
-
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-            # return HttpResponseRedirect('/Speech/')
-            # messages.warning(request,"Something Wrong")
-            return redirect('speech_page')
+            return HttpResponseRedirect('/Speech-app/Speech/')
 
 
 
