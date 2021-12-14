@@ -114,14 +114,14 @@ def speech_function(request):
         if text_speech == "":
 
              messages.warning(request,'Please Type to Speech')
-             return redirect('speech_page')
+             return HttpResponseRedirect('')
 
         else:
 
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-            return HttpResponseRedirect('/Speech-app/Speech/')
+            return HttpResponseRedirect('')
 
 
 
