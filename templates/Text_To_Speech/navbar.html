@@ -66,6 +66,34 @@
 
  <script  src="{%  static  'Text_To_Speech/JS/jquery-3.6.0.min.js'  %}  "/></script> 
  
+ <script type="text/javascript">
+  $(document).on('submit','#speech-form',function(e){
+
+  e.preventDefault();
+
+  $.ajax({
+
+    type:'POST',
+    // url:'{%  url "speech_refresh_form" %}',
+    url:'/Speech-app/Speechrefresh',
+    data:{
+
+      message:$('#message').val(),
+      csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+
+    },
+
+    success:function(){
+    
+      
+    }
+
+  });
+
+});
+
+
+</script>
 
 </body>
 </html>

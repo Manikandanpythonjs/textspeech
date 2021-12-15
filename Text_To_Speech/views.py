@@ -107,16 +107,21 @@ def logout_function(request):
 @login_required()
 def speech_function(request):
 
+               
+
+    return render(request,'Text_To_Speech/Speech_Page.html')
+
+
+
+def speech_refresh_form(request):
+
     if request.method =='POST':
 
         text_speech=request.POST.get('speech-field')
 
         if text_speech == "":
-            
+
              messages.warning(request,'Please Type to Speech')
-             engine = pyttsx3.init()
-             engine.say("Please Type to Speech")
-             engine.runAndWait()
              return HttpResponseRedirect('/Speech-app/Speech/')
 
         else:
@@ -124,10 +129,6 @@ def speech_function(request):
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-            return HttpResponseRedirect('/Speech-app/Speech/')
-            # return HttpResponse('Text_To_Speech/Speech_Page.html')
-    
-    else:    
-               
-
-        return render(request,'Text_To_Speech/Speech_Page.html')
+            # return HttpResponseRedirect('/Speech-app/Speech/')
+            return HttpResponse()
+        
