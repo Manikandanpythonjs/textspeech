@@ -109,28 +109,25 @@ def speech_function(request):
 
     if request.method =='POST':
 
-        text_speech=request.POST['speech_plaintext']
+        text_speech=request.POST.get('speech-field')
 
         if text_speech == "":
-
+            
              messages.warning(request,'Please Type to Speech')
-             return HttpResponseRedirect('')
+             engine = pyttsx3.init()
+             engine.say("Please Type to Speech")
+             engine.runAndWait()
+             return HttpResponseRedirect('/Speech-app/Speech/')
 
         else:
 
             engine = pyttsx3.init()
             engine.say(text_speech)
             engine.runAndWait()
-            return HttpResponseRedirect('')
-
-
-
-            
-        #     # return HttpResponseRedirect('speech_page')
-    else:           
+            return HttpResponseRedirect('/Speech-app/Speech/')
+            # return HttpResponse('Text_To_Speech/Speech_Page.html')
+    
+    else:    
+               
 
         return render(request,'Text_To_Speech/Speech_Page.html')
-
-
-
-

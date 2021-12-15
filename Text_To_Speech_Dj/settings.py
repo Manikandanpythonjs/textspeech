@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # ,default=False,cast=bool
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['texttospeechdj.herokuapp.com','127.0.0.1']
 
